@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav" [hidden]="!globalService.isLogged">
+    <li class="nav-item">
+      <a routerLink="list-dinosaure" class="nav-link" routerLinkActive="active">Ma liste d'amis</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-dinosaure" class="nav-link" routerLinkActive="active">Ajouter un dinosaure</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="#" (click)="logout()" class="nav-link" routerLinkActive="active">Deconnexion</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav " [hidden]="globalService.isLogged">
+    <li class="nav-item">
+      <a routerLink="login-dinosaure" class="nav-link" routerLinkActive="active">Connexion</a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="container main-content">
+  <br>
+  <div class="text-center alert">
+    <h2 style="text-align: center;">{{title}}</h2>
+  </div>
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="bg-dark text-light text-center p-4 m-0">
+    <span >My Dino address book </span>
+  </div>
+</footer>

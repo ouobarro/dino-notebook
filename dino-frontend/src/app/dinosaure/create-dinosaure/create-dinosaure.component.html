@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+  <!-- form card register -->
+  <div class="card-body">
+    <form [formGroup]="dinoForm" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="login">Famille</label>
+          <input id="family" class="form-control" type="text" formControlName="family">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.family.errors?.required">
+            Famille non valide !
+          </div>
+        </div>
+
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="race">Race</label>
+          <input id="race" class="form-control" type="text" formControlName="race">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.race.errors?.required">
+            La race est obligatoire !
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="age">Age</label>
+          <input id="age" class="form-control" type="number" formControlName="age">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.age.errors?.required">
+            Age non valide !
+          </div>
+        </div>
+
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="food">Nourriture</label>
+          <input id="food" class="form-control" type="text" formControlName="food">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.food.errors?.required">
+            Précisez un type de nourriture !
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="login">Identifiant</label>
+          <input id="login" class="form-control" type="text" formControlName="login">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.login.errors?.required">
+            L'identifiant est obligatoire !
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-sm-12 col-md-6">
+          <label for="passwd">Mot de passe</label>
+          <input id="passwd" class="form-control" type="password" formControlName="password">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.password.errors?.required">
+            Le mot de passe est obligatoire.
+          </div>
+        </div>
+
+        <div class="form-group col-sm-12 col-md-6" >
+          <label for="passwd-confirm">Confirmez votre mot de passe</label>
+          <input id="passwd-confirm" class="form-control" type="password" formControlName="passwordConfirm">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && getDinoForm.passwordConfirm.errors?.required">
+            Mot de passe non identique.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit">Enregistrer</button>
+      </div>
+    </form>
+
+  </div>
+</div>
