@@ -14,7 +14,8 @@ import { LoginDinosaureComponent } from './login/login-dinosaure/login-dinosaure
 import { UpdateDinosaureComponent } from './dinosaure/update-dinosaure/update-dinosaure.component';
 import { DinosaureService } from './services/dinosaure.service';
 import { GlobalService } from './services/global.service';
-import { AddFriendComponent } from './dinosaure/add-friend/add-friend.component'
+import { AddFriendComponent } from './dinosaure/add-friend/add-friend.component';
+import { AddDinoModalComponent } from './dinosaure/add-dino-modal/add-dino-modal.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddFriendComponent } from './dinosaure/add-friend/add-friend.component'
     InfosDinosaureComponent,
     LoginDinosaureComponent,
     UpdateDinosaureComponent,
-    AddFriendComponent
+    AddFriendComponent,
+    AddDinoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,6 @@ import { AddFriendComponent } from './dinosaure/add-friend/add-friend.component'
   ],
   providers: [DinosaureService, GlobalService],
   bootstrap: [AppComponent],
-  entryComponents: [AddFriendComponent]
+  entryComponents: [AddFriendComponent, AddDinoModalComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import {Dinosaure} from "../../models/dinosaure";
 import {GlobalService} from "../../services/global.service";
 import {DinosaureService} from "../../services/dinosaure.service";
 import { AddFriendComponent } from '../../dinosaure/add-friend/add-friend.component'
+import {AddDinoModalComponent} from "../add-dino-modal/add-dino-modal.component";
 
 @Component({
   selector: 'app-list-dinosaure',
@@ -31,6 +32,7 @@ export class ListDinosaureComponent implements OnInit {
     if(this.currentDino){
       this.getDinoFriendList()
     }
+    this.selfAdd = false;
   }
 
 
@@ -45,6 +47,27 @@ export class ListDinosaureComponent implements OnInit {
       }else{
         console.log("Aucun un ami Dino trouvé avec l'identifiant saisi !");
       }
+    }).catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
+  async createAndaddNewFriend(){
+    const modalRef = this.modalService.open(AddDinoModalComponent, {size: 'md', centered: true});
+
+    await modalRef.result.then( async (result) => {
+      console.log(result);
+
+      this.dinoService.createDinosaure(result).subscribe(
+        async (res) => {
+          console.log('Dino successfully created!');
+          await this.addDinoToFriendList(res._id);
+          await this.getDinoFriendList();
+        }, (error) => {
+          console.log(error);
+        });
     }).catch((error) => {
       console.log(error);
     });

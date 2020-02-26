@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <h4 class="modal-title text-info" id="modal-title">Ajout d'un ami</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+<div class="card-body">
+  <form [formGroup]="dinoForm" (ngSubmit)="submitForm()">
+
+    <div class="row">
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="login">Identifiant</label>
+        <input id="login" class="form-control" type="text" formControlName="login">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && getDinoForm.login.errors?.required">
+          L'identifiant est obligatoire !
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="family">Famille</label>
+        <input id="family" class="form-control" type="text" formControlName="family">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && getDinoForm.family.errors?.required">
+          Famille non valide !
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="race">Race</label>
+        <input id="race" class="form-control" type="text" formControlName="race">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && getDinoForm.race.errors?.required">
+          La race est obligatoire !
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="age">Age</label>
+        <input id="age" class="form-control" type="number" formControlName="age">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && getDinoForm.age.errors?.required">
+          Age non valide !
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12 col-md-6">
+        <label for="food">Nourriture</label>
+        <input id="food" class="form-control" type="text" formControlName="food">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && getDinoForm.food.errors?.required">
+          Précisez un type de nourriture !
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit">Ajouter</button>
+    </div>
+  </form>
+
+</div>
+
