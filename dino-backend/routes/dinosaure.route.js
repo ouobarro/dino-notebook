@@ -61,6 +61,18 @@ dinoRoute.route('/get-friends').get((req, res) => {
     })
 })
 
+// Get Dinosaure frindList
+dinoRoute.route('/get-notyetfriend').get((req, res) => {
+    var notFiendIds = JSON.parse(req.query.notFiendIds);
+    Dinosaure.find({_id: {$nin: notFiendIds }}, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
+})
+
 
 // Update dinosaure
 dinoRoute.route('/update/:id').put((req, res, next) => {

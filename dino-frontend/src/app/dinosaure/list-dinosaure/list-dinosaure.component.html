@@ -46,8 +46,7 @@
   </div>
 
   <div class="col-12 mb-1 text-right">
-    <button class="btn btn-lg btn-outline-info text-right mr-3" (click)="addNewFriend()">Ajouter un ami existant</button>
-    <button class="btn btn-lg btn-outline-success text-right" (click)="createAndaddNewFriend()">Ajouter un nouveau ami </button>
+    <button class="btn btn-lg btn-outline-info text-right mr-3" (click)="addNewFriend()">Ajouter un ami</button>
   </div>
 
   <div class="col-12 alert alert-info text-center">
@@ -71,14 +70,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dino of friendList">
+      <tr *ngFor="let dino of friendList" >
         <td>{{ dino.login }}</td>
         <td>{{dino.family }}</td>
         <td>{{dino.race}}</td>
         <td>{{dino.food}}</td>
         <td>{{dino.age}}</td>
         <td>
-          <button (click)="deleteDino(dino._id)" class="btn btn-danger" >Delete</button>
+          <button (click)="deleteDino(dino._id)" class="btn btn-danger" >Supprimer</button>
         </td>
       </tr>
       </tbody>

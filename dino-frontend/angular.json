@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dino-frontend"
+    }
+  },
+  "defaultProject": "dino-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

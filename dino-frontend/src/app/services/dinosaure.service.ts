@@ -61,6 +61,17 @@ export class DinosaureService {
     )
   }
 
+  // Get dinosaure by login and password
+  getDinoNotYetFriendList(notetFriendsIds): Observable<any> {
+    let url = `${this.baseUri}/get-notyetfriend?notFiendIds=${notetFriendsIds}`;
+    return this.http.get(url, {headers: this.headers}).pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
+        catchError(this.errorMgmt)
+    )
+  }
+
   // Update dinosaure
   updateDinosaure(id, data): Observable<any> {
     let url = `${this.baseUri}/update/${id}`;
