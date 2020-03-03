@@ -12,6 +12,8 @@ export class AddDinoModalComponent implements OnInit {
   submitted = false;
   dinoForm: FormGroup;
 
+  isValid = true;
+
   constructor(
     public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder
@@ -40,7 +42,12 @@ export class AddDinoModalComponent implements OnInit {
 
   public submitForm() {
     this.submitted = true;
-    this.activeModal.close(this.dinoForm.value);
+    if(this.dinoForm.valid){
+      this.activeModal.close(this.dinoForm.value);
+    }else{
+      this.isValid = false;
+      return false;
+    }
   }
 
 }

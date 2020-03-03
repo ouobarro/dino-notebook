@@ -91,7 +91,7 @@ dinoRoute.route('/update/:id').put((req, res, next) => {
 
 // Delete dinosaure
 dinoRoute.route('/delete/:id').delete((req, res, next) => {
-    Dinosaure.findOneAndRemove(req.params.id, (error, data) => {
+    Dinosaure.deleteOne({ _id: req.params.id }, (error, data) => {
         if (error) {
             return next(error);
         } else {

@@ -53,7 +53,12 @@ export class LoginDinosaureComponent implements OnInit {
           this.globalService.isLogged = true;
           //console.log("Logged dino: ", this.globalService.loginDino);
           this.router.navigate(['/list-dinosaure']);
+        } else {
+          this.validCredentiales = false;
         }
+      }, (error) => {
+        this.validCredentiales = false;
+        console.log(error);
       });
     }
   }

@@ -45,6 +45,14 @@
     <h5 class="alert alert-danger text-center" [hidden]="!selfAdd" >Impossible de s'ajouter à sa propre liste d'amie</h5>
   </div>
 
+  <div class="col-6 mb-1 text-center m-auto">
+    <h5 class="alert alert-info text-center" [hidden]="!isDinoExist" >Dinosaure existant !</h5>
+  </div>
+
+  <div class="col-6 mb-1 text-center m-auto">
+    <h5 class="alert alert-warning text-center" [hidden]="!isFriendExist" >Cet ami existe déjà dans votre liste !</h5>
+  </div>
+
   <div class="col-12 mb-1 text-right">
     <button class="btn btn-lg btn-outline-info text-right mr-3" (click)="addNewFriend()">Ajouter un ami</button>
   </div>
@@ -77,7 +85,7 @@
         <td>{{dino.food}}</td>
         <td>{{dino.age}}</td>
         <td>
-          <button (click)="deleteDino(dino._id)" class="btn btn-danger" >Supprimer</button>
+          <button (click)="deleteDino(dino)" class="btn btn-danger" >Supprimer</button>
         </td>
       </tr>
       </tbody>

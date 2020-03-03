@@ -25,7 +25,6 @@ export class AddFriendComponent implements OnInit {
     private dinosaureService: DinosaureService,
     public  globalService: GlobalService
   ) {
-    //this.createForm();
     this.getAllDinoList();
   }
 
@@ -56,11 +55,10 @@ export class AddFriendComponent implements OnInit {
     var allReadyids = this.globalService.loggedDino.friends;
     allReadyids.push(this.globalService.loggedDino._id);
     let ids = JSON.stringify(allReadyids);
-    console.log("allReadyIds: ", ids);
+    //console.log("allReadyIds: ", ids);
     await  this.dinosaureService.getDinoNotYetFriendList(ids).subscribe(
         async (data) => {
           let allDino: Array<Dinosaure> = Object.values(data);
-          console.log(" ===== allDino: ", allDino);
           this.allDinoList = allDino;
         }
     )

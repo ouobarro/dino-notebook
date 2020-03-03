@@ -1,7 +1,10 @@
 <div class="row justify-content-center">
-  <div class="card col-md-4 login-dino">
+  <div class="card col-md-5 login-dino">
     <!-- form card register -->
     <div class="card-body">
+      <div class="alert alert-danger text-center" [hidden]="validCredentiales">
+        <span >Identifiant ou mot de passe incorrect !</span>
+      </div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="login">Identifiant: </label>
